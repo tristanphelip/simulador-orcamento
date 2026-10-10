@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulador de Orçamento de Site</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: system-ui, sans-serif;
+        background: #f3f0ff;
+        margin: 0;
+        padding: 20px;
+        color: #222;
+      }
+      .container {
+        max-width: 520px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 28px;
+        border-radius: 16px;
+        box-shadow: 0 8px 30px rgba(80, 40, 160, 0.12);
+      }
+      h1 {
+        margin: 0 0 6px;
+        font-size: 1.6rem;
+      }
+      .sub {
+        color: #666;
+        margin-top: 0;
+      }
+      label {
+        display: block;
+        margin: 16px 0;
+        font-weight: 500;
+      }
+      select,
+      input[type="range"] {
+        width: 100%;
+        margin-top: 8px;
+      }
+      select {
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+      }
+      fieldset {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 12px 16px;
+      }
+      fieldset label {
+        font-weight: normal;
+        margin: 10px 0;
+      }
+      .resultado {
+        margin-top: 24px;
+        background: #7c4dff;
+        color: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        text-align: center;
+      }
+      #total {
+        display: block;
+        font-size: 2rem;
+        margin: 6px 0;
+      }
+      .prazo {
+        opacity: 0.9;
+        margin: 0 0 16px;
+      }
+      .btn {
+        display: inline-block;
+        background: #25d366;
+        color: #fff;
+        padding: 12px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Quanto custa o seu site?</h1>
+      <p class="sub">Monte seu projeto e veja uma estimativa na hora.</p>
+
+      <form id="form-orcamento">
+        <label
+          >Tipo de site
+          <select id="tipo">
+            <option value="300">Landing page (1 página)</option>
+            <option value="600">Site institucional</option>
+            <option value="1200">Loja online</option>
+          </select>
+        </label>
+
+        <label
+          >Páginas extras: <span id="paginas-valor">0</span>
+          <input type="range" id="paginas" min="0" max="10" value="0" />
+        </label>
+
+        <fieldset>
+          <legend>Recursos extras</legend>
+          <label
+            ><input type="checkbox" value="150" data-nome="Galeria de fotos" />
+            Galeria de fotos (+R$ 150)</label
+          >
+          <label
+            ><input
+              type="checkbox"
+              value="200"
+              data-nome="Formulário de contato"
+            />
+            Formulário de contato (+R$ 200)</label
+          >
+          <label
+            ><input
+              type="checkbox"
+              value="250"
+              data-nome="Agendamento online"
+            />
+            Agendamento online (+R$ 250)</label
+          >
+          <label
+            ><input
+              type="checkbox"
+              value="100"
+              data-nome="Integração com Instagram"
+            />
+            Integração com Instagram (+R$ 100)</label
+          >
+        </fieldset>
+      </form>
+
+      <div class="resultado">
+        <p>Estimativa:</p>
+        <strong id="total">R$ 0,00</strong>
+        <p class="prazo" id="prazo"></p>
+        <a id="btn-whats" class="btn" target="_blank" rel="noopener"
+          >Pedir orçamento no WhatsApp</a
+        >
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
